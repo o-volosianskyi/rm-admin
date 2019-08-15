@@ -39,5 +39,13 @@ module RmCore
     config.middleware.use ActionDispatch::Flash
     config.middleware.use Rack::MethodOverride
     config.middleware.use ActionDispatch::Session::CookieStore, {:key=>"_rm_core_session"}
+
+    #don't block cross-origin requests from localhost:5000
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'localhost:5000'
+        resource '*', :headers => :any, :methods => :any
+      end
+    end
   end
 end

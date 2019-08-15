@@ -17,6 +17,9 @@ gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'rails_admin_rollincode', '~> 1.0'
 
+#rack cors
+gem 'rack-cors', :require => 'rack/cors'
+
 #---
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

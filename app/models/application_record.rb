@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class ApplicationRecord < ActiveRecord::Base
+class ApplicationRecord < ActiveRecord::API
   self.abstract_class = true
 end
