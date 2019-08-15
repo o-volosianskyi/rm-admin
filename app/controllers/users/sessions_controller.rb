@@ -5,15 +5,17 @@ class Users::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   def new
-    @user = Users.find_by(params[:email]);
-    @user_group = Groups.find_by(@user.id);
-    super if @user_group == 'here goes id of ORG'
+   
+    super
   end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.find_by(email: params[:user]['email']); 
+    @user_group = @user.groups.name
+    puts "\n ********************Group: " + @user_group + "\n"
+    super #if @user_group == 1
+  end
 
   # DELETE /resource/sign_out
   # def destroy
